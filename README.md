@@ -1,7 +1,9 @@
 # VPC - create VPC in AWS by Ansible playbook
 ## Playbook vpc-setup.yml has the tasks: 
  Import VPC Variables
+
  Create vprofile VPC
+ 
  create Public Subnet 1 in Zone1
  create Public subnet 2 in zone2
  create Public subnet 3 in zone3
