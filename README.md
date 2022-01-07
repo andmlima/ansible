@@ -26,7 +26,7 @@
  
  Create variables file for vpc output	
 	
-# Playbook bastion-instance.yml has the tasks:
+## Playbook bastion-instance.yml has the tasks:
  
  Setup Vprofile Bastion Host
  
