@@ -39,7 +39,7 @@
 
     - name: Creating Bastion Host
       ec2:
-        key_name: vprofile-key
+        key_name: amlima-aws-virginia
         region: "{{region}}"
         instance_type: t2.micro
         image: "{{ bastion_ami }}"
