@@ -1,0 +1,6 @@
+# AMI of Unbutu 20.x
+nginx_ami: ami-04505e74c0741db8d
+tomcat_ami: ami-04505e74c0741db8d
+memcache_ami: ami-04505e74c0741db8d
+rmq_ami: ami-04505e74c0741db8d
+mysql_ami: ami-04505e74c0741db8d
