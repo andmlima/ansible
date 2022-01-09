@@ -7,8 +7,11 @@
     - name: Import VPC setup Variable
       include_vars: vars/vpc_setup
 
-    - name: Import VPC setup Variable
+    - name: Import Bastion setup Variable
       include_vars: vars/bastion_vars
+  
+    - name: Import VPC Variable from vpc-output_vars
+      include_vars: vars/vpc-output_vars
 
     - name: Create ec2 public key
       ec2_key:
