@@ -13,18 +13,18 @@
     - name: Import VPC setup Variable
       include_vars: vars/vpc_setup
 
-    - name: Create vprofile ec2 key
+    - name: Create ec2 public key
       ec2_key:
         name: amlima-aws-virginia
         region: "{{region}}"
-      register: vprokey_out
+      register: key_out
 
     - name: Save private key into file amlima-aws-virginia.pem
       copy:
-        content: "{{vprokey_out.key.private_key}}"
+        content: "{{key_out.key.private_key}}"
         dest: "./amlima-aws-virginia.pem"
         mode: 0600
-      when: vprokey_out.changed
+      when: key_out.changed
 
     - name: Create Securiry Group for Load Balancer
       ec2_group:
