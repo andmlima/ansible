@@ -1,4 +1,5 @@
 # AMI of Unbutu 20.x
+bastion_ami: ami-04505e74c0741db8d
 nginx_ami: ami-04505e74c0741db8d
 tomcat_ami: ami-04505e74c0741db8d
 memcache_ami: ami-04505e74c0741db8d
