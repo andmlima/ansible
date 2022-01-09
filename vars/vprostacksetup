@@ -1,7 +1,10 @@
 # AMI of Unbutu 20.x
-bastion_ami: ami-04505e74c0741db8d
 nginx_ami: ami-04505e74c0741db8d
 tomcat_ami: ami-04505e74c0741db8d
 memcache_ami: ami-04505e74c0741db8d
 rmq_ami: ami-04505e74c0741db8d
 mysql_ami: ami-04505e74c0741db8d
+
+# Bastion Vars
+bastion_ami: ami-04505e74c0741db8d
+MYIP: 186.249.142.242/32
