@@ -17,14 +17,14 @@
       ec2_key:
         name: amlima-aws-virginia
         region: "{{region}}"
-      register: key_out
+      register: vprokey_out
 
     - name: Save private key into file amlima-aws-virginia.pem
       copy:
-        content: "{{key_out.key.private_key}}"
+        content: "{{vprokey_out.key.private_key}}"
         dest: "./amlima-aws-virginia.pem"
         mode: 0600
-      when: key_out.changed
+      when: vprokey_out.changed
 
     - name: Create Securiry Group for Load Balancer
       ec2_group:
