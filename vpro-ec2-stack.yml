@@ -17,7 +17,7 @@
       ec2_key:
         name: amlima-aws-virginia
         region: "{{region}}"
-      register: vprokey_out
+      register: key_out
 
     - name: Save private key into file amlima-aws-virginia.pem
       copy:

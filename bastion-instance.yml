@@ -15,7 +15,7 @@
 
     - name: Create ec2 public key
       ec2_key:
-        name: amlima-aws-virginia
+        name: amlima-key
         region: "{{region}}"
       register: key_out
 
@@ -23,10 +23,10 @@
         var: key_out
 
 
-    - name: Save private key into file amlima-aws-virginia.pem
+    - name: Save private key into file amlima-key.pem
       copy:
         content: "{{key_out.key.private_key}}"
-        dest: ./amlima-aws-virginia.pem
+        dest: ./amlima-key.pem
         mode: 0600
       when: key_out.changed
 
@@ -45,7 +45,7 @@
 
     - name: Creating Bastion Host
       ec2:
-        key_name: amlima-aws-virginia
+        key_name: amlima-key
         region: "{{region}}"
         instance_type: t2.micro
         image: "{{ bastion_ami }}"
