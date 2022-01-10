@@ -17,7 +17,7 @@
       ec2_key:
         name: amlima-key
         region: "{{region}}"
-      register: key_out
+      register: vprokey_out
 
     - name: Save private key into file amlima-key.pem
       copy:
