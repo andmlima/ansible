@@ -15,14 +15,14 @@
 
     - name: Create ec2 public key
       ec2_key:
-        name: amlima-aws-virginia
+        name: amlima-key
         region: "{{region}}"
       register: key_out
 
-    - name: Save private key into file amlima-aws-virginia.pem
+    - name: Save private key into file amlima-key.pem
       copy:
         content: "{{vprokey_out.key.private_key}}"
-        dest: "./amlima-aws-virginia.pem"
+        dest: "./amlima-key.pem"
         mode: 0600
       when: vprokey_out.changed
 
@@ -71,7 +71,7 @@
 
     - name: Creating Nginx web01
       ec2:
-        key_name: amlima-aws-virginia
+        key_name: amlima-key
         region: "{{region}}"
         instance_type: t2.micro
         image: "{{nginx_ami}}"
@@ -92,7 +92,7 @@
 
     - name: Creating tomcat app01
       ec2:
-        key_name: amlima-aws-virginia
+        key_name: amlima-key
         region: "{{region}}"
         instance_type: t2.micro
         image: "{{tomcat_ami}}"
@@ -113,7 +113,7 @@
 
     - name: Creating memcache mc01
       ec2:
-        key_name: amlima-aws-virginia
+        key_name: amlima-key
         region: "{{region}}"
         instance_type: t2.micro
         image: "{{memcache_ami}}"
@@ -134,7 +134,7 @@
 
     - name: Creating RabbitMQ rmq01
       ec2:
-        key_name: amlima-aws-virginia
+        key_name: amlima-key
         region: "{{region}}"
         instance_type: t2.micro
         image: "{{rmq_ami}}"
@@ -155,7 +155,7 @@
 
     - name: Creating Mysql db01
       ec2:
-        key_name: amlima-aws-virginia
+        key_name: amlima-key
         region: "{{region}}"
         instance_type: t2.micro
         image: "{{mysql_ami}}"
@@ -207,8 +207,8 @@
 
     - name: Copy login key to provision_stack directory
       copy:
-        src: amlima-aws-virginia.pem
-        dest: provision-stack/amlima-aws-virginia.pem
+        src: amlima-key.pem
+        dest: provision-stack/amlima-key.pem
         mode: '0400'
 
     - name: Insert/Update Inventory file provision-stack/inventory-vpro
@@ -249,6 +249,6 @@
 
           [stack_inst:vars]
           ansible_user=ubuntu
-          ansible_ssh_private_key_file=amlima-aws-virginia.pem
+          ansible_ssh_private_key_file=amlima-key.pem
           #ansible_python_interpreter=/usr/bin/python3
 
