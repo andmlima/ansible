@@ -19,11 +19,14 @@
         region: "{{region}}"
       register: key_out
 
+    - debug:
+      var: key_out
+
 
     - name: Save private key into file amlima-aws-virginia.pem
       copy:
         content: "{{key_out.key.private_key}}"
-        dest: "./amlima-aws-virginia.pem"
+        dest: ./amlima-aws-virginia.pem
         mode: 0600
       when: key_out.changed
 
